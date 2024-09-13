@@ -4,7 +4,7 @@ import { FaPlus } from "react-icons/fa6";
 import uuidv4 from '../utils/genUUID';
 
 const Question = (params) => {
-    const {question , type , children , index , updateState , sendSignal , validityCheck , prefix , version} = params;
+    const {question , type , children , index , updateState , sendSignal , prefix , version} = params;
     const [questionValue , setQuestionValue] = useState(question);
     const [questionType , setQuestionType] = useState(type);
     const [childrenState , setChildrenState] = useState(children);
@@ -80,7 +80,7 @@ const Question = (params) => {
 
     const renderChildren = (question_object , index)=>{
         
-        return (<Question key={question_object.id} {...question_object} index={index} prefix={prefix + (params.index + 1) + "."} updateState={setChildrenState} validityCheck={validityCheck} sendSignal={setUpdateSignal} version={updateSignal} />);
+        return (<Question key={question_object.id} {...question_object} index={index} prefix={prefix + (params.index + 1) + "."} updateState={setChildrenState} sendSignal={setUpdateSignal} version={updateSignal} />);
     }
 
     return (

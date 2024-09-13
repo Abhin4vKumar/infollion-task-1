@@ -18,12 +18,6 @@ function App() {
   //     //again question
   //   ]
   // }]
-  const validityCheck = (str) => {
-    if(str && str.length && str.trim() !== ""){
-      return true;
-    }
-    return false;
-  }
   
   const addQuestion = (e)=>{
     const id = uuidv4();
@@ -39,7 +33,7 @@ function App() {
   }
 
   const renderQuestions = (question_object , index) =>{
-    return (<Question key={question_object.id} {...question_object} index={index} prefix={"Q."} updateState={setRootQuestions} validityCheck={validityCheck}  sendSignal={setUpdateSignal} version={updateSignal} />);
+    return (<Question key={question_object.id} {...question_object} index={index} prefix={"Q."} updateState={setRootQuestions}  sendSignal={setUpdateSignal} version={updateSignal} />);
   }
 
   const renderQuestionsDisplay = (question_object , index) =>{
@@ -49,7 +43,7 @@ function App() {
     }
     return (
     <>
-      <DisplayQuestion key={question_object.id} {...question_object} index={index} prefix={"Q."} updateState={setRootQuestions} validityCheck={validityCheck}  sendSignal={setUpdateSignal} version={updateSignal} />
+      <DisplayQuestion key={question_object.id} {...question_object} index={index} prefix={"Q."} />
       {flag !== 1 ?<span className="h-[1px] w-full bg-white/10 mx-auto" /> :<></>}
     </>
     );
