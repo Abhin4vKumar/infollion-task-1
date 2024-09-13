@@ -59,12 +59,12 @@ function App() {
   return (
     <div className="h-svh relative w-screen overflow-x-hidden bg-primary">
       <nav className="top-0 sticky border-b-[1px] border-accent-hover w-full h-[60px] bg-primary z-50 items-center justify-between text-3xl flex px-5">QuestionList <button onClick={handleSubmit} className="text-primary bg-accent rounded-full p-2 text-sm">Submit</button></nav>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 mt-5">
         {/* Root Level Questions */}
         {rootQuestions && rootQuestions.length === 0 ? <p className="w-full h-[50px] flex items-center justify-center text-lg">No Questions Available</p>:<></>}
         {rootQuestions && rootQuestions.length ? rootQuestions.map(renderQuestions) : <></>}
       </div>
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex items-center justify-center mt-5 mb-5">
         <button onClick={addQuestion}>Add New Question</button>
       </div>
       {submitPageDisplay === 1 ? 

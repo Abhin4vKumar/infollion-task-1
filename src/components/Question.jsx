@@ -85,14 +85,14 @@ const Question = (params) => {
 
     return (
     <div className="flex flex-col w-full gap-2">
-        <div className="flex gap-5 h-[51px] px-5 w-full">
+        <div className="flex gap-5 h-[102px] md:h-[51px] px-5 w-full flex-col md:flex-row">
             <div className="w-full flex gap-[12px] text-xl items-center justify-start">
                 <p className="w-fit">
                     {prefix}{index + 1}
                 </p>
-                <input onChange={updateQuesValue} type="text" className="w-full h-full text-white bg-white/10 px-3 outline-none border-none" value={question} placeholder={prefix + (index + 1)}/>
+                <input onChange={updateQuesValue} type="text" className="w-full h-[51px] text-white bg-white/10 px-3 outline-none border-none" value={question} placeholder={prefix + (index + 1)}/>
             </div>
-            <div className="flex w-fit max-w-[250px] min-w-fit gap-2">
+            <div className="flex w-full md:w-fit md:max-w-[250px] min-w-fit gap-2 items-center justify-center">
                 <div>
                     <select value={type} onChange={updateQuesType} name="type" className="bg-primary text-white outline-none p-3 h-[51px] border-none">
                         <option value="sa" readOnly>Short Answer</option>
@@ -103,7 +103,7 @@ const Question = (params) => {
                 {ans ==="T" && questionType === "tf" ? <button onClick={addQuestion} className="p-3 w-fit h-[51px] bg-primary text-accent hover:text-accent-hover text-2xl m-0 border-none outline-none flex items-center justify-center"><FaPlus/></button> : <></>}
             </div>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mt-5 md:mt-0">
         {questionType === "sa" ? 
             <input className="w-3/4 outline-none border-b border-white bg-primary p-2 text-xl" />
          : 
