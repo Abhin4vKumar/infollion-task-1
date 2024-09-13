@@ -1,8 +1,3 @@
-import React, { useEffect, useState } from 'react'
-import { MdDelete } from "react-icons/md";
-import { FaPlus } from "react-icons/fa6";
-import uuidv4 from '../utils/genUUID';
-
 const DisplayQuestion = (params) => {
     const {question , type , children , index , prefix } = params;
     const renderChildren = (question_object , index)=>{

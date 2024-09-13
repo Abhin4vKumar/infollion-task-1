@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Question from "./components/Question";
-import { FaPlus } from "react-icons/fa6";
 import uuidv4 from "./utils/genUUID";
 import DisplayQuestion from "./components/DisplayQuestion";
 
