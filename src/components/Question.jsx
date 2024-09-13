@@ -100,7 +100,7 @@ const Question = (params) => {
                     </select>
                 </div>
                 <button onClick={deleteQuestion} className="p-3 w-[51px] h-[51px] bg-primary m-0 border-none outline-none flex items-center justify-center text-2xl text-accent hover:text-accent-hover duration-300"><MdDelete/></button>
-                {ans ==="T" ? <button onClick={addQuestion} className="p-3 w-fit h-[51px] bg-primary text-accent hover:text-accent-hover text-2xl m-0 border-none outline-none flex items-center justify-center"><FaPlus/></button> : <></>}
+                {ans ==="T" && questionType === "tf" ? <button onClick={addQuestion} className="p-3 w-fit h-[51px] bg-primary text-accent hover:text-accent-hover text-2xl m-0 border-none outline-none flex items-center justify-center"><FaPlus/></button> : <></>}
             </div>
         </div>
         <div className="flex items-center justify-center">
