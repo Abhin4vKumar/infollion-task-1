@@ -10,7 +10,7 @@ const Question = (params) => {
     const [childrenState , setChildrenState] = useState(children);
     const [updateSignal , setUpdateSignal] = useState(version);
     const [localVersion , setLocalVersion] = useState(0);
-    const [ans , setAns] = useState("F");
+    const [ans , setAns] = useState(params.ans);
 
     useEffect(()=>{
         if(updateSignal !== version){
@@ -34,6 +34,7 @@ const Question = (params) => {
                 id:params.id,
                 question:questionValue,
                 type:questionType,
+                ans:ans,
                 children:childrenState
             };
             return temp;
@@ -61,6 +62,7 @@ const Question = (params) => {
             id:id,
             question:"",
             type:"sa",
+            ans:"F",
             children:[],
         }
         setChildrenState((prev)=>{

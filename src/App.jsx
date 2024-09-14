@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Question from "./components/Question";
 import uuidv4 from "./utils/genUUID";
 import DisplayQuestion from "./components/DisplayQuestion";
@@ -18,13 +18,25 @@ function App() {
   //     //again question
   //   ]
   // }]
-  
+
+  useEffect(()=>{
+    const state = localStorage.getItem('state');
+    if(state && state.trim() != ""){
+      const parsedState = JSON.parse(state);
+      setRootQuestions(parsedState);
+    }
+  },[])
+  useEffect(()=>{
+    localStorage.setItem('state', JSON.stringify(rootQuestions));
+  },[updateSignal,rootQuestions])
+
   const addQuestion = (e)=>{
     const id = uuidv4();
     const question_object = {
       id:id,
       question:"",
       type:"sa",
+      ans:"F",
       children:[],
     }
     setRootQuestions((prev)=>{
