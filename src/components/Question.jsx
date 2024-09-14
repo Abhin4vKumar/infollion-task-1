@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { MdDelete } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
+import { Reorder } from 'framer-motion';
 import uuidv4 from '../utils/genUUID';
 
 const Question = (params) => {
@@ -82,7 +83,11 @@ const Question = (params) => {
 
     const renderChildren = (question_object , index)=>{
         
-        return (<Question key={question_object.id} {...question_object} index={index} prefix={prefix + (params.index + 1) + "."} updateState={setChildrenState} sendSignal={setUpdateSignal} version={updateSignal} />);
+        return (
+            <Reorder.Item key={question_object.id} value={question_object}>
+                <Question key={question_object.id} {...question_object} index={index} prefix={prefix + (params.index + 1) + "."} updateState={setChildrenState} sendSignal={setUpdateSignal} version={updateSignal} />
+            </Reorder.Item>
+        );
     }
 
     return (
@@ -119,7 +124,9 @@ const Question = (params) => {
             <div>
                 {childrenState && childrenState.length > 0 ? 
                     <div  className="flex flex-col gap-5">
-                        {childrenState.map(renderChildren)}
+                        <Reorder.Group values={childrenState} onReorder={setChildrenState}>
+                            {childrenState.map(renderChildren)}
+                        </Reorder.Group>
                     </div>
                 :<></>}
             </div>
