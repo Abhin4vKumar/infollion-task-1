@@ -112,7 +112,7 @@ const Question = (params) => {
         </div>
         <div className="flex items-center justify-center mt-5 md:mt-0">
         {questionType === "sa" ? 
-            <input className="w-3/4 outline-none border-b border-white bg-primary p-2 text-xl" />
+            <input className="w-3/4 outline-none border-b border-white/50 bg-primary p-2 text-xl" />
          : 
             <select className="bg-primary text-xl p-3 border-none outline-none" value={ans} onChange={(e)=>{setAns(e.target.value)}}>
                 <option value="T" readOnly>True</option>
