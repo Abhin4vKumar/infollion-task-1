@@ -80,7 +80,7 @@ function App() {
         {/* Root Level Questions */}
         {rootQuestions && rootQuestions.length === 0 ? <p className="w-full h-[50px] flex items-center justify-center text-lg">No Questions Available</p>:<></>}
         {rootQuestions && rootQuestions.length ? 
-        <Reorder.Group values={rootQuestions} onReorder={setRootQuestions}>
+        <Reorder.Group values={rootQuestions} onReorder={setRootQuestions} className="flex flex-col gap-5 mt-5">
           {rootQuestions.map(renderQuestions)}
         </Reorder.Group>
         : <></>}

@@ -124,7 +124,7 @@ const Question = (params) => {
             <div>
                 {childrenState && childrenState.length > 0 ? 
                     <div  className="flex flex-col gap-5">
-                        <Reorder.Group values={childrenState} onReorder={setChildrenState}>
+                        <Reorder.Group values={childrenState} onReorder={setChildrenState} className="flex flex-col gap-5">
                             {childrenState.map(renderChildren)}
                         </Reorder.Group>
                     </div>
