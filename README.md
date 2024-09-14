@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Infollion Task 1 - Dynamic Form in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a dynamic form created using **React** that allows users to add parent and nested sub-questions dynamically. The form supports multiple levels of nesting (parent and child questions) and includes functionalities for form submission, auto-numbering, and the display of questions in a hierarchical format.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### 1. Add New Parent Questions
 
-### `npm start`
+- A button labeled "Add New Question" allows users to dynamically add new questions.
+- Each question includes:
+  - A text input field to enter the question.
+  - A dropdown to select the type of question ("Short Answer" or "True/False").
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Add Nested Child Questions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- If a **True/False** question is selected and the answer is "True", an option to add a child question appears.
+- Child questions can be nested recursively.
+- Child questions have the same structure as parent questions (text input, dropdown).
 
-### `npm test`
+### 3. Delete Functionality
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Each parent and child question includes a delete button to remove the question.
+- If a parent question is deleted, all nested child questions are also deleted.
 
-### `npm run build`
+### 4. Auto-numbering
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The form automatically numbers parent and child questions according to their position and depth (e.g., Q1, Q1.1, Q1.1.1, Q2).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 5. Form Submission
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- On submission, the questions (both parent and child) are displayed in a hierarchical format for review.
 
-### `npm run eject`
+### Bonus Features (Optional)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Local Storage Persistence**: The form saves its state in local storage so users can return without losing their progress.
+- **Basic Reordering**: Users can reorder questions using drag-and-drop.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installation and Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Clone the repository:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   `bash git clone https://github.com/Abhin4vKumar/infollion-task-1.git && cd infollion-task-1`
 
-## Learn More
+2. **Install dependencies:**
+   `bash npm install`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Run the development server:**
+   `npm start`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Dependencies
 
-### Code Splitting
+The project relies on the following major dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- React (v18.3.1): JavaScript library for building user interfaces.
+- Framer Motion (v11.5.4): Used for animations in the app.
+- React Icons (v5.3.0): Provides a variety of icons used in the app.
+- TailwindCSS (v3.4.11): Utility-first CSS framework for styling.
+- TailwindCSS Animate (v1.0.7): Animation utilities for TailwindCSS.
+- React Testing Library: Tools for testing React components.
+- React Scripts (v5.0.1): Configuration and scripts for Create React App.
+- Web Vitals: Provides utility methods to measure key performance metrics.
 
-### Analyzing the Bundle Size
+## Folder Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+├── public # Static files
+├── src
+│ ├── components # Form components and UI elements
+│ ├── App.js # Main entry point for the application
+│ ├── index.js # React DOM rendering
+├── package.json # Project metadata and dependencies
+└── README.md # Project documentation
