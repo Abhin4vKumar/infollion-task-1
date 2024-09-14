@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Question from "./components/Question";
 import uuidv4 from "./utils/genUUID";
 import DisplayQuestion from "./components/DisplayQuestion";
+import { Reorder } from "framer-motion";
 
 function App() {
   const [rootQuestions , setRootQuestions] = useState([]);
@@ -45,7 +46,11 @@ function App() {
   }
 
   const renderQuestions = (question_object , index) =>{
-    return (<Question key={question_object.id} {...question_object} index={index} prefix={"Q."} updateState={setRootQuestions}  sendSignal={setUpdateSignal} version={updateSignal} />);
+    return (
+      <Reorder.Item key={question_object.id} value={question_object}>
+        <Question key={question_object.id} {...question_object} index={index} prefix={"Q."} updateState={setRootQuestions}  sendSignal={setUpdateSignal} version={updateSignal} />
+      </Reorder.Item>
+    );
   }
 
   const renderQuestionsDisplay = (question_object , index) =>{
@@ -74,7 +79,11 @@ function App() {
       <div className="flex flex-col gap-5 mt-5">
         {/* Root Level Questions */}
         {rootQuestions && rootQuestions.length === 0 ? <p className="w-full h-[50px] flex items-center justify-center text-lg">No Questions Available</p>:<></>}
-        {rootQuestions && rootQuestions.length ? rootQuestions.map(renderQuestions) : <></>}
+        {rootQuestions && rootQuestions.length ? 
+        <Reorder.Group values={rootQuestions} onReorder={setRootQuestions}>
+          {rootQuestions.map(renderQuestions)}
+        </Reorder.Group>
+        : <></>}
       </div>
       <div className="w-full flex items-center justify-center mt-5 mb-5">
         <button onClick={addQuestion}>Add New Question</button>

@@ -86,7 +86,7 @@ const Question = (params) => {
     }
 
     return (
-    <div className="flex flex-col w-full gap-2">
+    <div className="flex flex-col w-full gap-2 bg-primary">
         <div className="flex gap-5 h-[102px] md:h-[51px] px-5 w-full flex-col md:flex-row">
             <div className="w-full flex gap-[12px] text-xl items-center justify-start">
                 <p className="w-fit">
